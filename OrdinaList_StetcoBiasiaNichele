@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct l_List
+{
+    int valore ;
+    struct l_List* Next;
+};
+typedef struct l_List Nodo;
+typedef Nodo* Next;
+
+void Unione (Nodo* L1, Nodo* L2)
+{
+while(L1->Next!= NULL){
+    L1=L1->Next;
+    }
+    L1->Next=L2;
+}
+
+int length (Nodo* l1)
+{
+    int l;
+    while (l1->Next != NULL)
+        l++;
+    return l;
+}
+
+void bubblesort(Nodo* l1) {
+    int i,k;
+    Nodo* Head;
+    Head=l1;
+    int n=length(l1);
+    int temp;
+
+    for(i = 0; i<n-1; i++) {
+     l1=Head;
+     for(k = 0; k<n-1-i; k++) {
+             if(l1->valore > l1->Next->valore) {
+              temp = l1->Next->valore;
+              l1->valore =l1->Next->valore;
+              l1->Next->valore = temp;
+              }
+              l1=l1->Next;
+     }
+     Head=Head->Next;
+    }
+}
+
+int main()
+{
+    return 0;
+}
